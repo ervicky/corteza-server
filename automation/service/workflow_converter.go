@@ -83,6 +83,7 @@ func (svc workflowConverter) makeGraph(def *types.Workflow) (*wfexec.Graph, type
 
 			if step.Kind == types.WorkflowStepKindVisual {
 				// make sure visual steps are skipped
+				progress = true
 				continue
 			}
 
