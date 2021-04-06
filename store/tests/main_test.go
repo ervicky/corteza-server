@@ -8,6 +8,7 @@ import (
 
 	"github.com/cortezaproject/corteza-server/pkg/logger"
 	"github.com/cortezaproject/corteza-server/store"
+	"github.com/cortezaproject/corteza-server/store/cockroach"
 	"github.com/cortezaproject/corteza-server/store/mysql"
 	"github.com/cortezaproject/corteza-server/store/postgres"
 	"github.com/cortezaproject/corteza-server/store/sqlite3"
@@ -55,7 +56,7 @@ func Test_Store(t *testing.T) {
 			{
 				name:      "CockroachDB",
 				dsnEnvKey: "RDBMS_COCKROACHDB_DSN",
-				init:      nil,
+				init:      cockroach.Connect,
 			},
 			{
 				name:      "SQLite",
